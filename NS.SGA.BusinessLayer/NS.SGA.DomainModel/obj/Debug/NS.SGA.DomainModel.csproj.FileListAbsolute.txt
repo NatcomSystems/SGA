@@ -1,0 +1,5 @@
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.DomainModel\bin\Debug\NS.SGA.DomainModel.dll
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.DomainModel\bin\Debug\NS.SGA.DomainModel.pdb
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.DomainModel\obj\Debug\NS.SGA.DomainModel.csprojResolveAssemblyReference.cache
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.DomainModel\obj\Debug\NS.SGA.DomainModel.dll
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.DomainModel\obj\Debug\NS.SGA.DomainModel.pdb

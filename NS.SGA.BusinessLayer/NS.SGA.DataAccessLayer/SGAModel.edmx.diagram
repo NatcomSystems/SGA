@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f4047df9d4541018056fef57c64f59c" Name="Diagram1" ZoomLevel="54">
+        <EntityTypeShape EntityType="SGAModel.Grado" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.Alumno" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.AlumnoSeccion" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.AlumnoSeccionCurso" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.Colegio" Width="1.5" PointX="1.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.Curso" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.CursoSeccion" Width="1.5" PointX="8.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.Periodo" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.Profesor" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.Seccion" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.Sede" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGAModel.SGA_T_USUARIO" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_SECCION_SCO_T_GRADO" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_ALUMNO_SECCION_SGA_T_ALUMNO" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_ALUMNO_SECCION" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_ALUMNO_SECCION_SGA_T_SECCION" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_CURSO" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_SEDE_SGA_T_COLEGIO" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_CURSO_SECCION_SGA_T_CURSO" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_CURSO_SGA_T_PERIODO" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_CURSO_SGA_T_SEDE" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_CURSO_SECCION_SGA_T_PROFESOR" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_CURSO_SECCION_SGA_T_SECCION" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_SECCION_SGA_T_PERIODO" ManuallyRouted="false" />
+        <AssociationConnector Association="SGAModel.FK_SGA_T_SECCION_SGA_T_SEDE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

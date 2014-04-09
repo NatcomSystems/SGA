@@ -1,0 +1,836 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SGA_DESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SCO_T_GRADO">
+          <Key>
+            <PropertyRef Name="gra_c_iid" />
+          </Key>
+          <Property Name="gra_c_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gra_c_vdescripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_ALUMNO">
+          <Key>
+            <PropertyRef Name="alu_c_iid" />
+          </Key>
+          <Property Name="alu_c_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alu_c_vdocumento" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="alu_c_vnombres" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="alu_c_vapellido_materno" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="alu_c_vapellido_paterno" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_ALUMNO_SECCION">
+          <Key>
+            <PropertyRef Name="alu_c_sec_iid" />
+          </Key>
+          <Property Name="alu_c_sec_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alu_c_iid" Type="int" Nullable="false" />
+          <Property Name="sec_c_iid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_ALUMNO_SECCION_CURSO">
+          <Key>
+            <PropertyRef Name="alu_sec_cur_t_iid" />
+          </Key>
+          <Property Name="alu_sec_cur_t_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alu_c_sec_iid" Type="int" Nullable="false" />
+          <Property Name="cur_c_iid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_COLEGIO">
+          <Key>
+            <PropertyRef Name="col_c_iid" />
+          </Key>
+          <Property Name="col_c_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="col_c_vrazon_social" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="col_c_vruc" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_CURSO">
+          <Key>
+            <PropertyRef Name="cur_c_iid" />
+          </Key>
+          <Property Name="cur_c_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cur_c_vnombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="per_c_iid" Type="int" Nullable="false" />
+          <Property Name="sed_c_iid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_CURSO_SECCION">
+          <Key>
+            <PropertyRef Name="cur_sec_t_iid" />
+          </Key>
+          <Property Name="cur_sec_t_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sec_c_iid" Type="int" Nullable="false" />
+          <Property Name="cur_c_iid" Type="int" Nullable="false" />
+          <Property Name="pro_c_iid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_PERIODO">
+          <Key>
+            <PropertyRef Name="per_c_iid" />
+          </Key>
+          <Property Name="per_c_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="per_c_vdescripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="per_c_ianio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_PROFESOR">
+          <Key>
+            <PropertyRef Name="pro_c_iid" />
+          </Key>
+          <Property Name="pro_c_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pro_c_vnombres" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="pro_c_vapellido_paterno" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="pro_c_vapellido_materno" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="pro_c_vdocumento" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_SECCION">
+          <Key>
+            <PropertyRef Name="sec_c_iid" />
+          </Key>
+          <Property Name="sec_c_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sec_c_vnombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="gra_c_iid" Type="int" Nullable="false" />
+          <Property Name="sed_c_iid" Type="int" Nullable="false" />
+          <Property Name="per_c_iid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_SEDE">
+          <Key>
+            <PropertyRef Name="sed_c_iid" />
+          </Key>
+          <Property Name="sed_c_iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="col_c_iid" Type="int" Nullable="false" />
+          <Property Name="sed_c_vdescripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_USUARIO">
+          <Key>
+            <PropertyRef Name="usu_c_iid" />
+          </Key>
+          <Property Name="usu_c_iid" Type="int" Nullable="false" />
+          <Property Name="usu_c_vnombres" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="usu_c_vapellido_paterno" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="usu_c_vapellido_materno" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_ALUMNO_SECCION">
+          <End Role="SGA_T_ALUMNO_SECCION" Type="Self.SGA_T_ALUMNO_SECCION" Multiplicity="1" />
+          <End Role="SGA_T_ALUMNO_SECCION_CURSO" Type="Self.SGA_T_ALUMNO_SECCION_CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_ALUMNO_SECCION">
+              <PropertyRef Name="alu_c_sec_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_ALUMNO_SECCION_CURSO">
+              <PropertyRef Name="alu_c_sec_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_CURSO">
+          <End Role="SGA_T_CURSO" Type="Self.SGA_T_CURSO" Multiplicity="1" />
+          <End Role="SGA_T_ALUMNO_SECCION_CURSO" Type="Self.SGA_T_ALUMNO_SECCION_CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_CURSO">
+              <PropertyRef Name="cur_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_ALUMNO_SECCION_CURSO">
+              <PropertyRef Name="cur_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_ALUMNO_SECCION_SGA_T_ALUMNO">
+          <End Role="SGA_T_ALUMNO" Type="Self.SGA_T_ALUMNO" Multiplicity="1" />
+          <End Role="SGA_T_ALUMNO_SECCION" Type="Self.SGA_T_ALUMNO_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_ALUMNO">
+              <PropertyRef Name="alu_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_ALUMNO_SECCION">
+              <PropertyRef Name="alu_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_ALUMNO_SECCION_SGA_T_SECCION">
+          <End Role="SGA_T_SECCION" Type="Self.SGA_T_SECCION" Multiplicity="1" />
+          <End Role="SGA_T_ALUMNO_SECCION" Type="Self.SGA_T_ALUMNO_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_SECCION">
+              <PropertyRef Name="sec_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_ALUMNO_SECCION">
+              <PropertyRef Name="sec_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_CURSO_SECCION_SGA_T_CURSO">
+          <End Role="SGA_T_CURSO" Type="Self.SGA_T_CURSO" Multiplicity="1" />
+          <End Role="SGA_T_CURSO_SECCION" Type="Self.SGA_T_CURSO_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_CURSO">
+              <PropertyRef Name="cur_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_CURSO_SECCION">
+              <PropertyRef Name="cur_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_CURSO_SECCION_SGA_T_PROFESOR">
+          <End Role="SGA_T_PROFESOR" Type="Self.SGA_T_PROFESOR" Multiplicity="1" />
+          <End Role="SGA_T_CURSO_SECCION" Type="Self.SGA_T_CURSO_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_PROFESOR">
+              <PropertyRef Name="pro_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_CURSO_SECCION">
+              <PropertyRef Name="pro_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_CURSO_SECCION_SGA_T_SECCION">
+          <End Role="SGA_T_SECCION" Type="Self.SGA_T_SECCION" Multiplicity="1" />
+          <End Role="SGA_T_CURSO_SECCION" Type="Self.SGA_T_CURSO_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_SECCION">
+              <PropertyRef Name="sec_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_CURSO_SECCION">
+              <PropertyRef Name="sec_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_CURSO_SGA_T_PERIODO">
+          <End Role="SGA_T_PERIODO" Type="Self.SGA_T_PERIODO" Multiplicity="1" />
+          <End Role="SGA_T_CURSO" Type="Self.SGA_T_CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_PERIODO">
+              <PropertyRef Name="per_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_CURSO">
+              <PropertyRef Name="per_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_CURSO_SGA_T_SEDE">
+          <End Role="SGA_T_SEDE" Type="Self.SGA_T_SEDE" Multiplicity="1" />
+          <End Role="SGA_T_CURSO" Type="Self.SGA_T_CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_SEDE">
+              <PropertyRef Name="sed_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_CURSO">
+              <PropertyRef Name="sed_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_SECCION_SCO_T_GRADO">
+          <End Role="SCO_T_GRADO" Type="Self.SCO_T_GRADO" Multiplicity="1" />
+          <End Role="SGA_T_SECCION" Type="Self.SGA_T_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SCO_T_GRADO">
+              <PropertyRef Name="gra_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_SECCION">
+              <PropertyRef Name="gra_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_SECCION_SGA_T_PERIODO">
+          <End Role="SGA_T_PERIODO" Type="Self.SGA_T_PERIODO" Multiplicity="1" />
+          <End Role="SGA_T_SECCION" Type="Self.SGA_T_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_PERIODO">
+              <PropertyRef Name="per_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_SECCION">
+              <PropertyRef Name="per_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_SECCION_SGA_T_SEDE">
+          <End Role="SGA_T_SEDE" Type="Self.SGA_T_SEDE" Multiplicity="1" />
+          <End Role="SGA_T_SECCION" Type="Self.SGA_T_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_SEDE">
+              <PropertyRef Name="sed_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_SECCION">
+              <PropertyRef Name="sed_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_SEDE_SGA_T_COLEGIO">
+          <End Role="SGA_T_COLEGIO" Type="Self.SGA_T_COLEGIO" Multiplicity="1" />
+          <End Role="SGA_T_SEDE" Type="Self.SGA_T_SEDE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_COLEGIO">
+              <PropertyRef Name="col_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_SEDE">
+              <PropertyRef Name="col_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SGA_DESModelStoreContainer">
+          <EntitySet Name="SCO_T_GRADO" EntityType="Self.SCO_T_GRADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_ALUMNO" EntityType="Self.SGA_T_ALUMNO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_ALUMNO_SECCION" EntityType="Self.SGA_T_ALUMNO_SECCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_ALUMNO_SECCION_CURSO" EntityType="Self.SGA_T_ALUMNO_SECCION_CURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_COLEGIO" EntityType="Self.SGA_T_COLEGIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_CURSO" EntityType="Self.SGA_T_CURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_CURSO_SECCION" EntityType="Self.SGA_T_CURSO_SECCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_PERIODO" EntityType="Self.SGA_T_PERIODO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_PROFESOR" EntityType="Self.SGA_T_PROFESOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_SECCION" EntityType="Self.SGA_T_SECCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_SEDE" EntityType="Self.SGA_T_SEDE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGA_T_USUARIO" EntityType="Self.SGA_T_USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_ALUMNO_SECCION" Association="Self.FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_ALUMNO_SECCION">
+            <End Role="SGA_T_ALUMNO_SECCION" EntitySet="SGA_T_ALUMNO_SECCION" />
+            <End Role="SGA_T_ALUMNO_SECCION_CURSO" EntitySet="SGA_T_ALUMNO_SECCION_CURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_CURSO" Association="Self.FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_CURSO">
+            <End Role="SGA_T_CURSO" EntitySet="SGA_T_CURSO" />
+            <End Role="SGA_T_ALUMNO_SECCION_CURSO" EntitySet="SGA_T_ALUMNO_SECCION_CURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_ALUMNO_SECCION_SGA_T_ALUMNO" Association="Self.FK_SGA_T_ALUMNO_SECCION_SGA_T_ALUMNO">
+            <End Role="SGA_T_ALUMNO" EntitySet="SGA_T_ALUMNO" />
+            <End Role="SGA_T_ALUMNO_SECCION" EntitySet="SGA_T_ALUMNO_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_ALUMNO_SECCION_SGA_T_SECCION" Association="Self.FK_SGA_T_ALUMNO_SECCION_SGA_T_SECCION">
+            <End Role="SGA_T_SECCION" EntitySet="SGA_T_SECCION" />
+            <End Role="SGA_T_ALUMNO_SECCION" EntitySet="SGA_T_ALUMNO_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_CURSO_SECCION_SGA_T_CURSO" Association="Self.FK_SGA_T_CURSO_SECCION_SGA_T_CURSO">
+            <End Role="SGA_T_CURSO" EntitySet="SGA_T_CURSO" />
+            <End Role="SGA_T_CURSO_SECCION" EntitySet="SGA_T_CURSO_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_CURSO_SECCION_SGA_T_PROFESOR" Association="Self.FK_SGA_T_CURSO_SECCION_SGA_T_PROFESOR">
+            <End Role="SGA_T_PROFESOR" EntitySet="SGA_T_PROFESOR" />
+            <End Role="SGA_T_CURSO_SECCION" EntitySet="SGA_T_CURSO_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_CURSO_SECCION_SGA_T_SECCION" Association="Self.FK_SGA_T_CURSO_SECCION_SGA_T_SECCION">
+            <End Role="SGA_T_SECCION" EntitySet="SGA_T_SECCION" />
+            <End Role="SGA_T_CURSO_SECCION" EntitySet="SGA_T_CURSO_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_CURSO_SGA_T_PERIODO" Association="Self.FK_SGA_T_CURSO_SGA_T_PERIODO">
+            <End Role="SGA_T_PERIODO" EntitySet="SGA_T_PERIODO" />
+            <End Role="SGA_T_CURSO" EntitySet="SGA_T_CURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_CURSO_SGA_T_SEDE" Association="Self.FK_SGA_T_CURSO_SGA_T_SEDE">
+            <End Role="SGA_T_SEDE" EntitySet="SGA_T_SEDE" />
+            <End Role="SGA_T_CURSO" EntitySet="SGA_T_CURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_SECCION_SCO_T_GRADO" Association="Self.FK_SGA_T_SECCION_SCO_T_GRADO">
+            <End Role="SCO_T_GRADO" EntitySet="SCO_T_GRADO" />
+            <End Role="SGA_T_SECCION" EntitySet="SGA_T_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_SECCION_SGA_T_PERIODO" Association="Self.FK_SGA_T_SECCION_SGA_T_PERIODO">
+            <End Role="SGA_T_PERIODO" EntitySet="SGA_T_PERIODO" />
+            <End Role="SGA_T_SECCION" EntitySet="SGA_T_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_SECCION_SGA_T_SEDE" Association="Self.FK_SGA_T_SECCION_SGA_T_SEDE">
+            <End Role="SGA_T_SEDE" EntitySet="SGA_T_SEDE" />
+            <End Role="SGA_T_SECCION" EntitySet="SGA_T_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_SEDE_SGA_T_COLEGIO" Association="Self.FK_SGA_T_SEDE_SGA_T_COLEGIO">
+            <End Role="SGA_T_COLEGIO" EntitySet="SGA_T_COLEGIO" />
+            <End Role="SGA_T_SEDE" EntitySet="SGA_T_SEDE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SGAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Grado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Seccion" Relationship="Self.FK_SGA_T_SECCION_SCO_T_GRADO" FromRole="SCO_T_GRADO" ToRole="SGA_T_SECCION" />
+        </EntityType>
+        <EntityType Name="Alumno">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Documento" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AlumnosSecciones" Relationship="Self.FK_SGA_T_ALUMNO_SECCION_SGA_T_ALUMNO" FromRole="SGA_T_ALUMNO" ToRole="SGA_T_ALUMNO_SECCION" />
+        </EntityType>
+        <EntityType Name="AlumnoSeccion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAlumno" Type="Int32" Nullable="false" />
+          <Property Name="IdSeccion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Alumno" Relationship="Self.FK_SGA_T_ALUMNO_SECCION_SGA_T_ALUMNO" FromRole="SGA_T_ALUMNO_SECCION" ToRole="SGA_T_ALUMNO" />
+          <NavigationProperty Name="SGA_T_ALUMNO_SECCION_CURSO" Relationship="Self.FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_ALUMNO_SECCION" FromRole="SGA_T_ALUMNO_SECCION" ToRole="SGA_T_ALUMNO_SECCION_CURSO" />
+          <NavigationProperty Name="SGA_T_SECCION" Relationship="Self.FK_SGA_T_ALUMNO_SECCION_SGA_T_SECCION" FromRole="SGA_T_ALUMNO_SECCION" ToRole="SGA_T_SECCION" />
+        </EntityType>
+        <EntityType Name="AlumnoSeccionCurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAlumnoSeccion" Type="Int32" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlumnoSeccion" Relationship="Self.FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_ALUMNO_SECCION" FromRole="SGA_T_ALUMNO_SECCION_CURSO" ToRole="SGA_T_ALUMNO_SECCION" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_CURSO" FromRole="SGA_T_ALUMNO_SECCION_CURSO" ToRole="SGA_T_CURSO" />
+        </EntityType>
+        <EntityType Name="Colegio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RazonSocial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ruc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Sedes" Relationship="Self.FK_SGA_T_SEDE_SGA_T_COLEGIO" FromRole="SGA_T_COLEGIO" ToRole="SGA_T_SEDE" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdPeriodo" Type="Int32" Nullable="false" />
+          <Property Name="IdSeccion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlumnosSecciones" Relationship="Self.FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_CURSO" FromRole="SGA_T_CURSO" ToRole="SGA_T_ALUMNO_SECCION_CURSO" />
+          <NavigationProperty Name="CursoSecciones" Relationship="Self.FK_SGA_T_CURSO_SECCION_SGA_T_CURSO" FromRole="SGA_T_CURSO" ToRole="SGA_T_CURSO_SECCION" />
+          <NavigationProperty Name="Periodo" Relationship="Self.FK_SGA_T_CURSO_SGA_T_PERIODO" FromRole="SGA_T_CURSO" ToRole="SGA_T_PERIODO" />
+          <NavigationProperty Name="Sede" Relationship="Self.FK_SGA_T_CURSO_SGA_T_SEDE" FromRole="SGA_T_CURSO" ToRole="SGA_T_SEDE" />
+        </EntityType>
+        <EntityType Name="CursoSeccion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSeccion" Type="Int32" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <Property Name="IdProfesor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK_SGA_T_CURSO_SECCION_SGA_T_CURSO" FromRole="SGA_T_CURSO_SECCION" ToRole="SGA_T_CURSO" />
+          <NavigationProperty Name="Profesor" Relationship="Self.FK_SGA_T_CURSO_SECCION_SGA_T_PROFESOR" FromRole="SGA_T_CURSO_SECCION" ToRole="SGA_T_PROFESOR" />
+          <NavigationProperty Name="Seccion" Relationship="Self.FK_SGA_T_CURSO_SECCION_SGA_T_SECCION" FromRole="SGA_T_CURSO_SECCION" ToRole="SGA_T_SECCION" />
+        </EntityType>
+        <EntityType Name="Periodo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Anio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cursos" Relationship="Self.FK_SGA_T_CURSO_SGA_T_PERIODO" FromRole="SGA_T_PERIODO" ToRole="SGA_T_CURSO" />
+          <NavigationProperty Name="Secciones" Relationship="Self.FK_SGA_T_SECCION_SGA_T_PERIODO" FromRole="SGA_T_PERIODO" ToRole="SGA_T_SECCION" />
+        </EntityType>
+        <EntityType Name="Profesor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Documento" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CursosSecciones" Relationship="Self.FK_SGA_T_CURSO_SECCION_SGA_T_PROFESOR" FromRole="SGA_T_PROFESOR" ToRole="SGA_T_CURSO_SECCION" />
+        </EntityType>
+        <EntityType Name="Seccion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdGrado" Type="Int32" Nullable="false" />
+          <Property Name="IdSeccion" Type="Int32" Nullable="false" />
+          <Property Name="IdPeriodo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Grado" Relationship="Self.FK_SGA_T_SECCION_SCO_T_GRADO" FromRole="SGA_T_SECCION" ToRole="SCO_T_GRADO" />
+          <NavigationProperty Name="AlumnosSecciones" Relationship="Self.FK_SGA_T_ALUMNO_SECCION_SGA_T_SECCION" FromRole="SGA_T_SECCION" ToRole="SGA_T_ALUMNO_SECCION" />
+          <NavigationProperty Name="CursosSecciones" Relationship="Self.FK_SGA_T_CURSO_SECCION_SGA_T_SECCION" FromRole="SGA_T_SECCION" ToRole="SGA_T_CURSO_SECCION" />
+          <NavigationProperty Name="Periodo" Relationship="Self.FK_SGA_T_SECCION_SGA_T_PERIODO" FromRole="SGA_T_SECCION" ToRole="SGA_T_PERIODO" />
+          <NavigationProperty Name="Sede" Relationship="Self.FK_SGA_T_SECCION_SGA_T_SEDE" FromRole="SGA_T_SECCION" ToRole="SGA_T_SEDE" />
+        </EntityType>
+        <EntityType Name="Sede">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdColegio" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Colegio" Relationship="Self.FK_SGA_T_SEDE_SGA_T_COLEGIO" FromRole="SGA_T_SEDE" ToRole="SGA_T_COLEGIO" />
+          <NavigationProperty Name="Cursos" Relationship="Self.FK_SGA_T_CURSO_SGA_T_SEDE" FromRole="SGA_T_SEDE" ToRole="SGA_T_CURSO" />
+          <NavigationProperty Name="Secciones" Relationship="Self.FK_SGA_T_SECCION_SGA_T_SEDE" FromRole="SGA_T_SEDE" ToRole="SGA_T_SECCION" />
+        </EntityType>
+        <EntityType Name="SGA_T_USUARIO">
+          <Key>
+            <PropertyRef Name="usu_c_iid" />
+          </Key>
+          <Property Name="usu_c_iid" Type="Int32" Nullable="false" />
+          <Property Name="usu_c_vnombres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usu_c_vapellido_paterno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usu_c_vapellido_materno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_SGA_T_SECCION_SCO_T_GRADO">
+          <End Role="SCO_T_GRADO" Type="SGAModel.Grado" Multiplicity="1" />
+          <End Role="SGA_T_SECCION" Type="SGAModel.Seccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SCO_T_GRADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_SECCION">
+              <PropertyRef Name="IdGrado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_ALUMNO_SECCION_SGA_T_ALUMNO">
+          <End Role="SGA_T_ALUMNO" Type="SGAModel.Alumno" Multiplicity="1" />
+          <End Role="SGA_T_ALUMNO_SECCION" Type="SGAModel.AlumnoSeccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_ALUMNO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_ALUMNO_SECCION">
+              <PropertyRef Name="IdAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_ALUMNO_SECCION">
+          <End Role="SGA_T_ALUMNO_SECCION" Type="SGAModel.AlumnoSeccion" Multiplicity="1" />
+          <End Role="SGA_T_ALUMNO_SECCION_CURSO" Type="SGAModel.AlumnoSeccionCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_ALUMNO_SECCION">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_ALUMNO_SECCION_CURSO">
+              <PropertyRef Name="IdAlumnoSeccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_ALUMNO_SECCION_SGA_T_SECCION">
+          <End Role="SGA_T_SECCION" Type="SGAModel.Seccion" Multiplicity="1" />
+          <End Role="SGA_T_ALUMNO_SECCION" Type="SGAModel.AlumnoSeccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_SECCION">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_ALUMNO_SECCION">
+              <PropertyRef Name="IdSeccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_CURSO">
+          <End Role="SGA_T_CURSO" Type="SGAModel.Curso" Multiplicity="1" />
+          <End Role="SGA_T_ALUMNO_SECCION_CURSO" Type="SGAModel.AlumnoSeccionCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_CURSO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_ALUMNO_SECCION_CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_SEDE_SGA_T_COLEGIO">
+          <End Role="SGA_T_COLEGIO" Type="SGAModel.Colegio" Multiplicity="1" />
+          <End Role="SGA_T_SEDE" Type="SGAModel.Sede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_COLEGIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_SEDE">
+              <PropertyRef Name="IdColegio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_CURSO_SECCION_SGA_T_CURSO">
+          <End Role="SGA_T_CURSO" Type="SGAModel.Curso" Multiplicity="1" />
+          <End Role="SGA_T_CURSO_SECCION" Type="SGAModel.CursoSeccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_CURSO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_CURSO_SECCION">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_CURSO_SGA_T_PERIODO">
+          <End Role="SGA_T_PERIODO" Type="SGAModel.Periodo" Multiplicity="1" />
+          <End Role="SGA_T_CURSO" Type="SGAModel.Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_PERIODO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_CURSO">
+              <PropertyRef Name="IdPeriodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_CURSO_SGA_T_SEDE">
+          <End Role="SGA_T_SEDE" Type="SGAModel.Sede" Multiplicity="1" />
+          <End Role="SGA_T_CURSO" Type="SGAModel.Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_SEDE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_CURSO">
+              <PropertyRef Name="IdSeccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_CURSO_SECCION_SGA_T_PROFESOR">
+          <End Role="SGA_T_PROFESOR" Type="SGAModel.Profesor" Multiplicity="1" />
+          <End Role="SGA_T_CURSO_SECCION" Type="SGAModel.CursoSeccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_PROFESOR">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_CURSO_SECCION">
+              <PropertyRef Name="IdProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_CURSO_SECCION_SGA_T_SECCION">
+          <End Role="SGA_T_SECCION" Type="SGAModel.Seccion" Multiplicity="1" />
+          <End Role="SGA_T_CURSO_SECCION" Type="SGAModel.CursoSeccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_SECCION">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_CURSO_SECCION">
+              <PropertyRef Name="IdSeccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_SECCION_SGA_T_PERIODO">
+          <End Role="SGA_T_PERIODO" Type="SGAModel.Periodo" Multiplicity="1" />
+          <End Role="SGA_T_SECCION" Type="SGAModel.Seccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_PERIODO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_SECCION">
+              <PropertyRef Name="IdPeriodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_SECCION_SGA_T_SEDE">
+          <End Role="SGA_T_SEDE" Type="SGAModel.Sede" Multiplicity="1" />
+          <End Role="SGA_T_SECCION" Type="SGAModel.Seccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_SEDE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SGA_T_SECCION">
+              <PropertyRef Name="IdSeccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SGAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Grados" EntityType="SGAModel.Grado" />
+          <EntitySet Name="Alumnos" EntityType="SGAModel.Alumno" />
+          <EntitySet Name="AlumnosSecciones" EntityType="SGAModel.AlumnoSeccion" />
+          <EntitySet Name="AlumnosSeccionesCursos" EntityType="SGAModel.AlumnoSeccionCurso" />
+          <EntitySet Name="Colegio" EntityType="SGAModel.Colegio" />
+          <EntitySet Name="Curso" EntityType="SGAModel.Curso" />
+          <EntitySet Name="CursosSecciones" EntityType="SGAModel.CursoSeccion" />
+          <EntitySet Name="Periodos" EntityType="SGAModel.Periodo" />
+          <EntitySet Name="Profesores" EntityType="SGAModel.Profesor" />
+          <EntitySet Name="Secciones" EntityType="SGAModel.Seccion" />
+          <EntitySet Name="Sedes" EntityType="SGAModel.Sede" />
+          <EntitySet Name="SGA_T_USUARIO" EntityType="Self.SGA_T_USUARIO" />
+          <AssociationSet Name="FK_SGA_T_SECCION_SCO_T_GRADO" Association="Self.FK_SGA_T_SECCION_SCO_T_GRADO">
+            <End Role="SCO_T_GRADO" EntitySet="Grados" />
+            <End Role="SGA_T_SECCION" EntitySet="Secciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_ALUMNO_SECCION_SGA_T_ALUMNO" Association="Self.FK_SGA_T_ALUMNO_SECCION_SGA_T_ALUMNO">
+            <End Role="SGA_T_ALUMNO" EntitySet="Alumnos" />
+            <End Role="SGA_T_ALUMNO_SECCION" EntitySet="AlumnosSecciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_ALUMNO_SECCION" Association="Self.FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_ALUMNO_SECCION">
+            <End Role="SGA_T_ALUMNO_SECCION" EntitySet="AlumnosSecciones" />
+            <End Role="SGA_T_ALUMNO_SECCION_CURSO" EntitySet="AlumnosSeccionesCursos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_ALUMNO_SECCION_SGA_T_SECCION" Association="Self.FK_SGA_T_ALUMNO_SECCION_SGA_T_SECCION">
+            <End Role="SGA_T_SECCION" EntitySet="Secciones" />
+            <End Role="SGA_T_ALUMNO_SECCION" EntitySet="AlumnosSecciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_CURSO" Association="Self.FK_SGA_T_ALUMNO_SECCION_CURSO_SGA_T_CURSO">
+            <End Role="SGA_T_CURSO" EntitySet="Curso" />
+            <End Role="SGA_T_ALUMNO_SECCION_CURSO" EntitySet="AlumnosSeccionesCursos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_SEDE_SGA_T_COLEGIO" Association="Self.FK_SGA_T_SEDE_SGA_T_COLEGIO">
+            <End Role="SGA_T_COLEGIO" EntitySet="Colegio" />
+            <End Role="SGA_T_SEDE" EntitySet="Sedes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_CURSO_SECCION_SGA_T_CURSO" Association="Self.FK_SGA_T_CURSO_SECCION_SGA_T_CURSO">
+            <End Role="SGA_T_CURSO" EntitySet="Curso" />
+            <End Role="SGA_T_CURSO_SECCION" EntitySet="CursosSecciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_CURSO_SGA_T_PERIODO" Association="Self.FK_SGA_T_CURSO_SGA_T_PERIODO">
+            <End Role="SGA_T_PERIODO" EntitySet="Periodos" />
+            <End Role="SGA_T_CURSO" EntitySet="Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_CURSO_SGA_T_SEDE" Association="Self.FK_SGA_T_CURSO_SGA_T_SEDE">
+            <End Role="SGA_T_SEDE" EntitySet="Sedes" />
+            <End Role="SGA_T_CURSO" EntitySet="Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_CURSO_SECCION_SGA_T_PROFESOR" Association="Self.FK_SGA_T_CURSO_SECCION_SGA_T_PROFESOR">
+            <End Role="SGA_T_PROFESOR" EntitySet="Profesores" />
+            <End Role="SGA_T_CURSO_SECCION" EntitySet="CursosSecciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_CURSO_SECCION_SGA_T_SECCION" Association="Self.FK_SGA_T_CURSO_SECCION_SGA_T_SECCION">
+            <End Role="SGA_T_SECCION" EntitySet="Secciones" />
+            <End Role="SGA_T_CURSO_SECCION" EntitySet="CursosSecciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_SECCION_SGA_T_PERIODO" Association="Self.FK_SGA_T_SECCION_SGA_T_PERIODO">
+            <End Role="SGA_T_PERIODO" EntitySet="Periodos" />
+            <End Role="SGA_T_SECCION" EntitySet="Secciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_SECCION_SGA_T_SEDE" Association="Self.FK_SGA_T_SECCION_SGA_T_SEDE">
+            <End Role="SGA_T_SEDE" EntitySet="Sedes" />
+            <End Role="SGA_T_SECCION" EntitySet="Secciones" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SGA_DESModelStoreContainer" CdmEntityContainer="SGAEntities">
+          <EntitySetMapping Name="Grados">
+            <EntityTypeMapping TypeName="SGAModel.Grado">
+              <MappingFragment StoreEntitySet="SCO_T_GRADO">
+                <ScalarProperty Name="Id" ColumnName="gra_c_iid" />
+                <ScalarProperty Name="Descripcion" ColumnName="gra_c_vdescripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alumnos">
+            <EntityTypeMapping TypeName="SGAModel.Alumno">
+              <MappingFragment StoreEntitySet="SGA_T_ALUMNO">
+                <ScalarProperty Name="Id" ColumnName="alu_c_iid" />
+                <ScalarProperty Name="Documento" ColumnName="alu_c_vdocumento" />
+                <ScalarProperty Name="Nombres" ColumnName="alu_c_vnombres" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="alu_c_vapellido_materno" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="alu_c_vapellido_paterno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlumnosSecciones">
+            <EntityTypeMapping TypeName="SGAModel.AlumnoSeccion">
+              <MappingFragment StoreEntitySet="SGA_T_ALUMNO_SECCION">
+                <ScalarProperty Name="Id" ColumnName="alu_c_sec_iid" />
+                <ScalarProperty Name="IdAlumno" ColumnName="alu_c_iid" />
+                <ScalarProperty Name="IdSeccion" ColumnName="sec_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlumnosSeccionesCursos">
+            <EntityTypeMapping TypeName="SGAModel.AlumnoSeccionCurso">
+              <MappingFragment StoreEntitySet="SGA_T_ALUMNO_SECCION_CURSO">
+                <ScalarProperty Name="Id" ColumnName="alu_sec_cur_t_iid" />
+                <ScalarProperty Name="IdAlumnoSeccion" ColumnName="alu_c_sec_iid" />
+                <ScalarProperty Name="IdCurso" ColumnName="cur_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colegio">
+            <EntityTypeMapping TypeName="SGAModel.Colegio">
+              <MappingFragment StoreEntitySet="SGA_T_COLEGIO">
+                <ScalarProperty Name="Id" ColumnName="col_c_iid" />
+                <ScalarProperty Name="RazonSocial" ColumnName="col_c_vrazon_social" />
+                <ScalarProperty Name="Ruc" ColumnName="col_c_vruc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curso">
+            <EntityTypeMapping TypeName="SGAModel.Curso">
+              <MappingFragment StoreEntitySet="SGA_T_CURSO">
+                <ScalarProperty Name="Id" ColumnName="cur_c_iid" />
+                <ScalarProperty Name="Nombre" ColumnName="cur_c_vnombre" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="per_c_iid" />
+                <ScalarProperty Name="IdSeccion" ColumnName="sed_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CursosSecciones">
+            <EntityTypeMapping TypeName="SGAModel.CursoSeccion">
+              <MappingFragment StoreEntitySet="SGA_T_CURSO_SECCION">
+                <ScalarProperty Name="Id" ColumnName="cur_sec_t_iid" />
+                <ScalarProperty Name="IdSeccion" ColumnName="sec_c_iid" />
+                <ScalarProperty Name="IdCurso" ColumnName="cur_c_iid" />
+                <ScalarProperty Name="IdProfesor" ColumnName="pro_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periodos">
+            <EntityTypeMapping TypeName="SGAModel.Periodo">
+              <MappingFragment StoreEntitySet="SGA_T_PERIODO">
+                <ScalarProperty Name="Id" ColumnName="per_c_iid" />
+                <ScalarProperty Name="Descripcion" ColumnName="per_c_vdescripcion" />
+                <ScalarProperty Name="Anio" ColumnName="per_c_ianio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profesores">
+            <EntityTypeMapping TypeName="SGAModel.Profesor">
+              <MappingFragment StoreEntitySet="SGA_T_PROFESOR">
+                <ScalarProperty Name="Id" ColumnName="pro_c_iid" />
+                <ScalarProperty Name="Nombres" ColumnName="pro_c_vnombres" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="pro_c_vapellido_paterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="pro_c_vapellido_materno" />
+                <ScalarProperty Name="Documento" ColumnName="pro_c_vdocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Secciones">
+            <EntityTypeMapping TypeName="SGAModel.Seccion">
+              <MappingFragment StoreEntitySet="SGA_T_SECCION">
+                <ScalarProperty Name="Id" ColumnName="sec_c_iid" />
+                <ScalarProperty Name="Nombre" ColumnName="sec_c_vnombre" />
+                <ScalarProperty Name="IdGrado" ColumnName="gra_c_iid" />
+                <ScalarProperty Name="IdSeccion" ColumnName="sed_c_iid" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="per_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sedes">
+            <EntityTypeMapping TypeName="SGAModel.Sede">
+              <MappingFragment StoreEntitySet="SGA_T_SEDE">
+                <ScalarProperty Name="Id" ColumnName="sed_c_iid" />
+                <ScalarProperty Name="IdColegio" ColumnName="col_c_iid" />
+                <ScalarProperty Name="Descripcion" ColumnName="sed_c_vdescripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SGA_T_USUARIO">
+            <EntityTypeMapping TypeName="SGAModel.SGA_T_USUARIO">
+              <MappingFragment StoreEntitySet="SGA_T_USUARIO">
+                <ScalarProperty Name="usu_c_iid" ColumnName="usu_c_iid" />
+                <ScalarProperty Name="usu_c_vnombres" ColumnName="usu_c_vnombres" />
+                <ScalarProperty Name="usu_c_vapellido_paterno" ColumnName="usu_c_vapellido_paterno" />
+                <ScalarProperty Name="usu_c_vapellido_materno" ColumnName="usu_c_vapellido_materno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

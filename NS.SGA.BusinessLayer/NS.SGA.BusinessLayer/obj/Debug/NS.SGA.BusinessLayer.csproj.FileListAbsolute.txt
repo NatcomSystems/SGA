@@ -1,0 +1,11 @@
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\bin\Debug\NS.SGA.BusinessLayer.dll
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\bin\Debug\NS.SGA.BusinessLayer.pdb
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\bin\Debug\NS.SGA.DataAccessLayer.dll
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\bin\Debug\NS.SGA.DomainModel.dll
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\bin\Debug\EntityFramework.dll
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\bin\Debug\NS.SGA.DataAccessLayer.pdb
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\bin\Debug\NS.SGA.DomainModel.pdb
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\bin\Debug\EntityFramework.xml
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\obj\Debug\NS.SGA.BusinessLayer.csprojResolveAssemblyReference.cache
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\obj\Debug\NS.SGA.BusinessLayer.dll
+D:\sga\NS.SGA.BusinessLayer\NS.SGA.BusinessLayer\obj\Debug\NS.SGA.BusinessLayer.pdb
